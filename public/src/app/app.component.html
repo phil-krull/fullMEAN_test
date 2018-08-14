@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <hr>
+</div>
+<div>
+  <h1>{{ all }}</h1>
+  <div *ngIf="animals">
+    <fieldset *ngFor="let animal of animals">
+      <h3>Name: <span>{{ animal.name }}</span></h3>
+      <h3>Population: <span>{{ animal.population }}</span></h3>
+      <button (click)="showOne(animal._id)">Show</button>
+    </fieldset>
+  </div>
+</div>
+<div>
+  <h1>{{ add }}</h1>
+  {{ animal | json }}
+  <form action="" (submit)="addAnimal($event)">
+    <table>
+      <tr>
+        <td>Name:</td>
+        <th><input type="text"  name="animal.name" [(ngModel)]="animal.name"></th>
+      </tr>
+      <tr>
+        <td>Population:</td>
+        <th><input type="number" name="animal.population" [(ngModel)]="animal.population"></th>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Add"></td>
+      </tr>
+    </table>
+  </form>
+</div>
+<div>
+  <h1>{{ one }}</h1>
+  <div *ngIf="showAnimal">
+    <fieldset>
+      <h3>Name: <span>{{ showAnimal.name }}</span></h3>
+      <h3>Population: <span>{{ showAnimal.population }}</span></h3>
+    </fieldset>
+  </div>
+</div>
